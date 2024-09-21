@@ -1,0 +1,42 @@
+﻿@page "/login"
+@using BlazorAppAuth.Client.Models
+<h3>Login</h3>
+<div class="rz-p-0 rz-p-md-12">
+    <RadzenTemplateForm TItem="RequestToken" Data=@model Submit=@OnSubmit InvalidSubmit=@OnInvalidSubmit>
+        <RadzenStack Gap="1rem" class="rz-p-sm-12">
+            <RadzenFormField Text="User Name" Variant="@variant">
+                <ChildContent>
+                    <RadzenTextBox Name="UserName" @bind-Value=@model.user_name />
+                </ChildContent>
+                <Helper>
+                    <RadzenRequiredValidator Component="UserName" Text="First name is required." />
+                </Helper>
+            </RadzenFormField>
+            <RadzenFormField Text="Password" Variant="@variant">
+                <ChildContent>
+                    <RadzenTextBox Name="Password" @bind-Value=@model.password />
+                </ChildContent>
+                <Helper>
+                    <RadzenRequiredValidator Component="LastName" Text="Last name is required." />
+                </Helper>
+            </RadzenFormField>
+            <RadzenButton ButtonType="ButtonType.Submit" Text="Submit"></RadzenButton>
+        </RadzenStack>
+    </RadzenTemplateForm>
+</div>
+
+@code {
+    Variant variant = Variant.Outlined;
+
+    RequestToken model = new RequestToken();
+
+    void OnSubmit(RequestToken model)
+    {
+        // console.Log($"Submit: {JsonSerializer.Serialize(model, new JsonSerializerOptions() {  WriteIndented = true })}");
+    }
+
+    void OnInvalidSubmit(FormInvalidSubmitEventArgs args)
+    {
+        // console.Log($"InvalidSubmit: {JsonSerializer.Serialize(args, new JsonSerializerOptions() {  WriteIndented = true })}");
+    }
+}
