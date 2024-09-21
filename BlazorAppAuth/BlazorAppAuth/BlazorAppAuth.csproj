@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\BlazorAppAuth.Client\BlazorAppAuth.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.6" />
+	<PackageReference Include="Radzen.Blazor" Version="5.2.2" />
   </ItemGroup>
 
 </Project>
