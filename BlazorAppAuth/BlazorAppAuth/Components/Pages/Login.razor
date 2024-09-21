@@ -2,7 +2,7 @@
 @using BlazorAppAuth.Client.Models
 <h3>Login</h3>
 <div class="rz-p-0 rz-p-md-12">
-    <RadzenTemplateForm TItem="RequestToken" Data=@model Submit=@OnSubmit InvalidSubmit=@OnInvalidSubmit>
+    <RadzenTemplateForm TItem="TokenRequest" Data=@model Submit=@OnSubmit InvalidSubmit=@OnInvalidSubmit>
         <RadzenStack Gap="1rem" class="rz-p-sm-12">
             <RadzenFormField Text="User Name" Variant="@variant">
                 <ChildContent>
@@ -28,9 +28,9 @@
 @code {
     Variant variant = Variant.Outlined;
 
-    RequestToken model = new RequestToken();
+    TokenRequest model = new TokenRequest();
 
-    void OnSubmit(RequestToken model)
+    void OnSubmit(TokenRequest model)
     {
         // console.Log($"Submit: {JsonSerializer.Serialize(model, new JsonSerializerOptions() {  WriteIndented = true })}");
     }
