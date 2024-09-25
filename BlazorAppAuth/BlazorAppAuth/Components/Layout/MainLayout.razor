@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+
 <RadzenComponents @rendermode="InteractiveAuto" />
 
 <RadzenLayout Style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body'">
@@ -10,8 +11,9 @@
     </RadzenHeader>
     <RadzenSidebar @bind-Expanded="@sidebarExpanded">
         <RadzenPanelMenu>
-            <RadzenPanelMenuItem Text="Home" Icon="home" />
+            <RadzenPanelMenuItem Text="Home" Icon="home" Path="" />
             <RadzenPanelMenuItem Text="Users" Icon="account_box" />
+            <RadzenPanelMenuItem Text="Login" Icon="account_box" Path="login"/>
         </RadzenPanelMenu>
         <div class="rz-p-4">
             Sidebar
