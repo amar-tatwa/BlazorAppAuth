@@ -19,7 +19,7 @@
 
 
 <div class="rz-p-0 rz-p-md-12">
-    <RadzenTemplateForm TItem="TokenRequest" Data=@model Submit=@OnSubmit InvalidSubmit=@OnInvalidSubmit @rendermode="InteractiveAuto">
+    <RadzenTemplateForm TItem="TokenRequest" Data=@model>
         <RadzenStack Gap="1rem" class="rz-p-sm-12">
             <RadzenFormField Text="User Name" Variant="@variant">
                 <ChildContent>
@@ -37,7 +37,7 @@
                     <RadzenRequiredValidator Component="LastName" Text="Last name is required." />
                 </Helper>
             </RadzenFormField>
-            <RadzenButton ButtonType="ButtonType.Submit" Text="Submit"></RadzenButton>
+            <RadzenButton ButtonType="ButtonType.Button" Text="Submit" onclick="OnSubmit"></RadzenButton>
         </RadzenStack>
     </RadzenTemplateForm>
 
