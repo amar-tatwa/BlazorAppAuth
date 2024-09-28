@@ -10,7 +10,6 @@
 @inject IHttpClientFactory HttpClientFactory
 @rendermode InteractiveAuto *@
 @* @rendermode InteractiveWebAssembly *@
-
 <h3>Login</h3>
 @if (!string.IsNullOrEmpty(errorMessage))
 {
@@ -18,48 +17,27 @@
 }
 
 
-<div class="rz-p-0 rz-p-md-12">
-    <RadzenTemplateForm TItem="TokenRequest" Data=@model>
-        <RadzenStack Gap="1rem" class="rz-p-sm-12">
-            <RadzenFormField Text="User Name" Variant="@variant">
-                <ChildContent>
-                    <RadzenTextBox Name="UserName" @bind-Value=@model.user_name />
-                </ChildContent>
-                <Helper>
-                    <RadzenRequiredValidator Component="UserName" Text="First name is required." />
-                </Helper>
-            </RadzenFormField>
-            <RadzenFormField Text="Password" Variant="@variant">
-                <ChildContent>
-                    <RadzenTextBox Name="Password" @bind-Value=@model.password />
-                </ChildContent>
-                <Helper>
-                    <RadzenRequiredValidator Component="LastName" Text="Last name is required." />
-                </Helper>
-            </RadzenFormField>
-            <RadzenButton ButtonType="ButtonType.Button" Text="Submit" onclick="OnSubmit"></RadzenButton>
-        </RadzenStack>
-    </RadzenTemplateForm>
-
-  @*   <EditForm Model="@model" FormName="login-data" OnValidSubmit="@OnSubmit" style="width: 200px;">
-        <DataAnnotationsValidator />
-        <ValidationSummary />
-
-        <div class="form-group">
-            <label>User Name:</label>
-            <InputText @bind-Value="model.user_name" class="form-control" />
-            <ValidationMessage For="@(() => model.user_name)" />
-        </div>
-
-        <div class="form-group">
-            <label>Password:</label>
-            <InputText @bind-Value="model.password" type="password" class="form-control" />
-            <ValidationMessage For="@(() => model.password)" />
-        </div>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-    </EditForm> *@
-</div>
+<RadzenTemplateForm TItem="TokenRequest" Data=@model Submit=@OnSubmit>
+    <RadzenStack Gap="1rem" class="rz-p-sm-12">
+        <RadzenFormField Text="User Name" Variant="@variant">
+            <ChildContent>
+                <RadzenTextBox Name="UserName" @bind-Value=@model.user_name />
+            </ChildContent>
+            <Helper>
+                <RadzenRequiredValidator Component="UserName" Text="First name is required." />
+            </Helper>
+        </RadzenFormField>
+        <RadzenFormField Text="Password" Variant="@variant">
+            <ChildContent>
+                <RadzenTextBox Name="Password" @bind-Value=@model.password />
+            </ChildContent>
+            <Helper>
+                <RadzenRequiredValidator Component="LastName" Text="Last name is required." />
+            </Helper>
+        </RadzenFormField>
+        <RadzenButton ButtonType="ButtonType.Submit" Text="Submit"></RadzenButton>
+    </RadzenStack>
+</RadzenTemplateForm>
 
 @code {
 
@@ -75,7 +53,7 @@
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
-       
+        model = new TokenRequest();
     }
     async Task OnSubmit(TokenRequest model)
     {
@@ -100,7 +78,7 @@
         // else
         // {
         //     errorMessage = "Invalid login attempt.";
-            
+
         // }
     }
 

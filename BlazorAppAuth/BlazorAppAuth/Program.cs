@@ -27,7 +27,7 @@ services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(
         options =>
         {
-            options.LoginPath = "/login";
+            options.LoginPath = "/login-2";
             options.AccessDeniedPath = "/access-denied";
         });
 

@@ -1,7 +1,7 @@
 ﻿@using BlazorAppAuth.Client.Components
 @inherits LayoutComponentBase
-
-<RadzenComponents />
+<RadzenComponents @rendermode="InteractiveAuto" />
+@* <RadzenComponents @rendermode="InteractiveAuto" /> *@
 
 <RadzenLayout Style="grid-template-areas: 'rz-sidebar rz-header' 'rz-sidebar rz-body'">
     <RadzenHeader>
@@ -19,6 +19,7 @@
             <RadzenPanelMenuItem Text="Users" Icon="account_box" />
             <RadzenPanelMenuItem Text="Login" Icon="account_box" Path="login-2"/>
             <RadzenPanelMenuItem Text="Logout" Icon="account_box" Path="Logout" />
+            <RadzenPanelMenuItem Text="protected" Icon="account_box" Path="protected" />
         </RadzenPanelMenu>
         <div class="rz-p-4">
             Sidebar
